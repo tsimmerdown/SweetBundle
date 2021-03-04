@@ -19,6 +19,7 @@ const Cont = styled.div`
   position: absolute;
   height: 10vh;
   width: 100%;
+  padding: 0 15vw;
   top: 0;
 `;
 
@@ -39,30 +40,19 @@ const Navbar = () => {
     <NavCont style={{ height: `${height}px` }}>
       {/* <ScrollChange> */}
       <Cont>
-        <LinkList>
-          <ButtonLink name={"About"} />
-          <Divider
-            variant="middle"
-            orientation="vertical"
-            style={{ background: "black" }}
-          />
-          <ButtonLink name={"Menu"} />
-          <Divider
-            variant="middle"
-            orientation="vertical"
-            style={{ background: "black" }}
-          />
-          <Typography variant="h4" style={{ margin: " 1vh 0" }}>
-            Sweet Bundle
-          </Typography>
-          <ButtonLink name={"Order"} />
-          <Divider
-            variant="middle"
-            orientation="vertical"
-            style={{ background: "black" }}
-          />
-          <ButtonLink name={"FAQ"} />
-        </LinkList>
+        <ButtonLink name={"About"} />
+
+        <ButtonLink name={"Menu"} />
+
+        <Typography
+          variant="h4"
+          style={{ margin: " 1vh 0", flexGrow: 1, textAlign: "center" }}
+        >
+          Sweet Bundle
+        </Typography>
+        <ButtonLink name={"Order"} />
+
+        <ButtonLink name={"FAQ"} />
       </Cont>
       {/* </ScrollChange> */}
     </NavCont>

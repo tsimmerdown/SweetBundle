@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 const Mask = styled.div``;
 
@@ -17,7 +17,14 @@ const ButtonLink = ({ name }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "40px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "40px",
+        margin: "0 5vw",
+      }}
+    >
       <Button
         onMouseEnter={() => {
           setHover(true);
