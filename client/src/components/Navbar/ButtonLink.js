@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
-import { Button, Typography } from "@material-ui/core";
+import { motion } from "framer-motion";
+import { Button } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+
+import { setCursor } from "../../actions/cursor";
 
 const Mask = styled.div``;
 
@@ -14,7 +17,12 @@ const Rect = styled(motion.div)`
 const transitions = { duration: 0.5, ease: [0.6, -0.05, 0.01, 0.9] };
 
 const ButtonLink = ({ name }) => {
+  const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
+  const handleHover = () => {
+    setHover(!hover);
+    dispatch(setCursor());
+  };
 
   return (
     <div
@@ -27,14 +35,12 @@ const ButtonLink = ({ name }) => {
     >
       <Button
         onMouseEnter={() => {
-          setHover(true);
+          handleHover();
         }}
         onMouseLeave={() => {
-          setHover(false);
+          handleHover();
         }}
-        onClick={() => {
-          console.log(document.body.scrollHeight);
-        }}
+        onClick={() => {}}
         disableRipple
         style={{ backgroundColor: "transparent" }}
       >

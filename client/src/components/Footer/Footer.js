@@ -15,7 +15,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 const FooterCont = styled.div`
   height: 40vh;
   width: 100%;
-  background-color: #808080;
+  background: #e1e1e1;
   .emailCont {
     display: flex;
     align-items: center;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Typography, Divider } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 import ScrollChange from "../ScrollChange/ScrollChange";
 import ButtonLink from "./ButtonLink";
@@ -10,6 +11,10 @@ const NavCont = styled.div`
   position: absolute;
   background-color: transparent;
   z-index: 10000;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Cont = styled.div`
@@ -30,29 +35,36 @@ const LinkList = styled.div`
 // const Links = ["About", "Menu", "Order", "FAQ"];
 
 const Navbar = () => {
-  const [height, setHeight] = useState();
-
-  useEffect(() => {
-    setHeight(document.body.scrollHeight);
-  }, []);
-
   return (
-    <NavCont style={{ height: `${height}px` }}>
-      {/* <ScrollChange> */}
+    <NavCont>
       <Cont>
-        <ButtonLink name={"About"} />
+        <Link to="/about">
+          <ButtonLink name={"About"} />
+        </Link>
+        <Link to="/menu">
+          <ButtonLink name={"Menu"} />
+        </Link>
 
-        <ButtonLink name={"Menu"} />
+        <Link to="/">
+          <Typography
+            variant="h4"
+            style={{
+              margin: " 1vh 0",
+              flexGrow: 1,
+              textAlign: "center",
+              color: "black",
+            }}
+          >
+            Sweet Bundle
+          </Typography>
+        </Link>
+        <Link to="/order">
+          <ButtonLink name={"Order"} />
+        </Link>
 
-        <Typography
-          variant="h4"
-          style={{ margin: " 1vh 0", flexGrow: 1, textAlign: "center" }}
-        >
-          Sweet Bundle
-        </Typography>
-        <ButtonLink name={"Order"} />
-
-        <ButtonLink name={"FAQ"} />
+        <Link to="/faq">
+          <ButtonLink name={"FAQ"} />
+        </Link>
       </Cont>
       {/* </ScrollChange> */}
     </NavCont>
