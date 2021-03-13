@@ -17,8 +17,8 @@ import { motion } from "framer-motion";
 const CustomCursor = styled(motion.div)`
   z-index: 100000;
   border-radius: 50%;
-  width: ${(props) => (props.hover ? "40px" : "25px")};
-  height: ${(props) => (props.hover ? "40px" : "25px")};
+  width: ${(props) => (props.hover ? "40px" : "30px")};
+  height: ${(props) => (props.hover ? "40px" : "30px")};
   border: 1px solid black;
   backdrop-filter: blur(1px);
   pointer-events: none;
