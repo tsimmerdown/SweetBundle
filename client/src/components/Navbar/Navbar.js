@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 
 import ScrollChange from "../ScrollChange/ScrollChange";
 import ButtonLink from "./ButtonLink";
+import { useDispatch } from "react-redux";
+import { setCursor } from "../../actions/cursor";
 
 const NavCont = styled.div`
   width: 100%;
   position: absolute;
   background-color: transparent;
   z-index: 10000;
-
   a {
     text-decoration: none;
   }
@@ -35,6 +36,13 @@ const LinkList = styled.div`
 // const Links = ["About", "Menu", "Order", "FAQ"];
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const [hover, setHover] = useState(false);
+  const handleHover = () => {
+    setHover(!hover);
+    dispatch(setCursor());
+  };
+
   return (
     <NavCont>
       <Cont>
@@ -45,14 +53,22 @@ const Navbar = () => {
           <ButtonLink name={"Menu"} />
         </Link>
 
-        <Link to="/">
+        <Link
+          to="/"
+          onMouseEnter={() => {
+            handleHover();
+          }}
+          onMouseLeave={() => {
+            handleHover();
+          }}
+        >
           <Typography
             variant="h4"
             style={{
               margin: " 1vh 0",
               flexGrow: 1,
               textAlign: "center",
-              color: "black",
+              color: "white",
             }}
           >
             Sweet Bundle

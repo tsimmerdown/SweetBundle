@@ -21,7 +21,6 @@ const FAQCont = styled(motion.div)`
 const TitleCont = styled.div`
   padding: 10vh 0;
   margin: 10vh 0 5vh 0;
-  // background: rgba(0, 0, 0, 0.5);
 `;
 
 const AccordionList = styled.div`
@@ -29,7 +28,10 @@ const AccordionList = styled.div`
 `;
 
 const AccordionCont = styled(Accordion)`
-  margin: 2vh 0;
+  && {
+    margin: 2vh 0;
+    background: #303030;
+  }
 `;
 
 const containerVariants = {

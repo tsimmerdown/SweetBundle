@@ -9,7 +9,7 @@ const Panel = styled(motion.div)`
   width: 50vw;
   position: absolute;
   z-index: 150000;
-  background: #e7e7de;
+  background: #696969;
 
   &.leftPanel {
     left: 0;

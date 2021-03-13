@@ -16,6 +16,8 @@ const InfoCont = styled.div`
   padding: 0 15vw;
   position: absolute;
   bottom: 10vh;
+  background: #383838;
+  z-index: -1;
 `;
 
 const CardCont = styled(Card)`

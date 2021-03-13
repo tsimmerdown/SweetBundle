@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Typography, Button } from "@material-ui/core";
+import { motion } from "framer-motion";
 
 import wave from "./wave.svg";
 import { useLocation } from "react-router";
@@ -42,6 +43,8 @@ const MainButton = styled(Button)`
     left: 46.5%;
   }
 `;
+
+const Title = styled(motion(Typography))``;
 
 const calcDynamicHeight = (objectWidth) => {
   const vw = window.innerWidth;
@@ -94,17 +97,32 @@ const HorizontalScroll = ({ children }) => {
   return (
     <TallOuterContainer dynamicHeight={dynamicHeight}>
       <StickyInnerContainer ref={containerRef}>
-        <Typography
-          variant="h2"
+        <div
           style={{
-            marginBottom: "10vh",
+            overflow: "hidden",
             position: "absolute",
+            marginBottom: "10vh",
             top: "15%",
             left: "43.5%",
           }}
         >
-          Our Menu
-        </Typography>
+          <Title
+            variant="h2"
+            initial={{
+              x: "100%",
+            }}
+            animate={{
+              x: "-100%",
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: "3",
+              ease: [0.2, 0.2, 0.2, 0.2],
+            }}
+          >
+            Our Menu
+          </Title>
+        </div>
         <HorizontalTranslateContainer translateX={translateX} ref={objectRef}>
           {children}
         </HorizontalTranslateContainer>

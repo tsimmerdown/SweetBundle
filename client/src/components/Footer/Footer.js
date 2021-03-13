@@ -15,7 +15,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 const FooterCont = styled.div`
   height: 40vh;
   width: 100%;
-  background: #e1e1e1;
+  background: #303030;
   .emailCont {
     display: flex;
     align-items: center;
@@ -55,12 +55,17 @@ const BottomCont = styled.div`
 `;
 
 const Input = styled(InputBase)`
-  padding: 5px;
+  && {
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+  }
 `;
 
 const StyledButton = styled(Button)`
-  border-radius: 0;
-  background-color: #6772e5;
+  && {
+    border-radius: 0 5px 5px 0;
+    background-color: #990000;
+  }
 `;
 
 const Footer = () => {
@@ -107,25 +112,31 @@ const Footer = () => {
           <Typography variant="h5" style={{ padding: "2vh 0" }}>
             Pages
           </Typography>
-          <Divider orientation="horizontal" style={{ marginBottom: "2vh" }} />
+          <Divider
+            orientation="horizontal"
+            style={{ marginBottom: "2vh", background: "black" }}
+          />
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            <strong>About</strong>
+            About
           </Typography>
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            <strong>Menu</strong>
+            Menu
           </Typography>
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            <strong>Order</strong>
+            Order
           </Typography>
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            <strong>FAQ</strong>
+            FAQ
           </Typography>
         </div>
         <div className="contactUs">
           <Typography variant="h5" style={{ padding: "2vh 0" }}>
             Contact Us
           </Typography>
-          <Divider orientation="horizontal" style={{ marginBottom: "2vh" }} />
+          <Divider
+            orientation="horizontal"
+            style={{ marginBottom: "2vh", background: "black" }}
+          />
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
             <strong>Email: </strong>helloworld@gmail.com
           </Typography>

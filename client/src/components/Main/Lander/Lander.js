@@ -1,18 +1,28 @@
 import React from "react";
 import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
-//import ReactPlayer from "react-player";
-//import BgVideo from "./ripe_strawberries_falling_through_the_water.mp4";
 
 const FallingStrawBerries = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
+  // background: radial-gradient(
+  //   farthest-corner at 120% 10%,
+  //   #383838,
+  //   #404040,
+  //   #484848,
+  //   #505050,
+  //   #686868,
+  //   #686868,
+  //   #686868,
+  //   #686868
+  // );
+  background: #383838;
 `;
 
 const TextCont = styled.div`
-  margin-left: 15vw;
+  margin-left: 17vw;
   .body {
     margin: 0 0 2vh 5px;
   }
@@ -29,14 +39,9 @@ const MainButton = styled(Button)`
   }
 `;
 
-const Sphere = styled.div`
-  position: absolute;
-`;
-
 const Lander = () => {
   return (
     <FallingStrawBerries>
-      <Sphere />
       <TextCont>
         <Typography variant="h2">Bundle of Joy</Typography>
         <Typography variant="body1" className="body">
@@ -46,15 +51,11 @@ const Lander = () => {
           ORDER NOW
         </MainButton>
       </TextCont>
-      {/* <ReactPlayer
-        url={BgVideo}
-        playing={true}
-        muted={true}
-        width="115%"
-        height="130%"
-        loop={true}
-        style={{ position: "absolute", zIndex: "-1", overflow: "hidden" }}
-      /> */}
+      <img
+        src="./images/Lander.png"
+        alt="box of strawberries"
+        style={{ position: "absolute", right: "15vw" }}
+      />
     </FallingStrawBerries>
   );
 };
