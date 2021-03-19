@@ -3,7 +3,7 @@ import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 const FallingStrawBerries = styled.div`
-  height: 100vh;
+  height: 85vh;
   width: 100%;
   display: flex;
   align-items: center;

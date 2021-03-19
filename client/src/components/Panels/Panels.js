@@ -37,10 +37,11 @@ const Panels = () => {
         className="leftPanel"
       ></Panel>
       <Panel
-        initial={{ height: 0, top: window.innerHeight }}
+        initial={{ height: 0, top: 0 }}
         animate={{
           height: [0, window.innerHeight, 0],
-          top: [0, 0, window.innerHeight],
+          // top: [0, 0, window.innerHeight],
+          top: [null, 0, 0],
         }}
         // exit={{
         //   height: [0, window.innerHeight, window.innerHeight],

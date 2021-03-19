@@ -61,14 +61,15 @@ const Testimonials = () => {
             duration: "50",
           }}
         >
-          <ContItem />
-          <ContItem />
-          <ContItem />
-          <ContItem />
-          <ContItem />
-          <ContItem />
-          <ContItem />
-          <ContItem />
+          <ContItem text={"They taste just as good as they look!!! <3"} img />
+          <ContItem
+            text={
+              "They taste just as good as they look!!! <3They taste just as good as they look!!! <3They taste just as good as they look!!! <3They taste just as good as they look!!! <3"
+            }
+            img
+          />
+          <ContItem text={"They taste just as good as they look!!! <3"} img />
+          <ContItem text={"They taste just as good as they look!!! <3"} img />
         </Cont>
       </HorizontalCont>
       <Wave src={wave} />

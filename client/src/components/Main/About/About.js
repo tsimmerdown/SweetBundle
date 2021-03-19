@@ -160,7 +160,7 @@ const About = () => {
               is to work with clients by being able to cater their special
               events like baby showers, weddings or birthdays. This dream
               originates from my love of planning and seeing those happy smiles
-              in everyone’s face. I hope you love our sweets and stay sweet
+              in everyone’s face. I hope you love our sweets and stay sweet.
             </Text>
             <IconButton
               size="small"

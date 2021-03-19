@@ -14,19 +14,22 @@ const CardContent = styled(Card)`
   margin: 1vw;
   position: relative;
   && {
-    opacity: ${(props) => (props.open ? 0.1 : 1)}
-    background-color: rgba(0, 0, 0, 0.2);
+    //opacity: ${(props) => (props.open ? 0.1 : 1)}
+    background-color: rgba(0, 0, 0, 0.4);
   }
 `;
 
 const HoverCont = styled.div`
-  min-width: 20vw;
-  height: 30vh;
+  width: 100%;
+  height: 30%;
   position: absolute;
   backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  padding: 10px;
 `;
 
-const ContItem = () => {
+const ContItem = ({ text, img }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,17 +45,24 @@ const ContItem = () => {
       <img
         alt="img"
         src={Pic}
-        style={{ width: "100%", height: "100%", borderRadius: "5px" }}
+        style={{ width: "100%", height: "100%", borderRadius: " 5px" }}
         open
       />
-      {open && (
-        <HoverCont>
-          {/* <RightQuote /> */}
-          <Typography variant="h6">
-            {"They taste just as good as they look!!! <3"}
-          </Typography>
-        </HoverCont>
-      )}
+      <HoverCont>
+        <img
+          alt="img"
+          src={RightQuote}
+          style={{ height: "20%", borderRadius: "5px" }}
+          open
+        />
+        <Typography variant="h6">{text}</Typography>
+        <img
+          alt="img"
+          src={RightQuote}
+          style={{ height: "20%", borderRadius: "5px", paddingLeft: "95%" }}
+          open
+        />
+      </HoverCont>
     </CardContent>
   );
 };

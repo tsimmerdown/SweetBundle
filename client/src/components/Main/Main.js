@@ -8,6 +8,7 @@ import Instagram from "./Instagram/Instagram";
 import Menu from "./Menu/Menu";
 import About from "./About/About";
 import Panels from "../Panels/Panels";
+import Carousel from "./Carousel/Carousel";
 
 const containerVariants = {
   initial: {
@@ -45,6 +46,7 @@ const Main = () => {
         <Lander />
         {/* <About />
       <Menu /> */}
+        <Carousel />
         <Info />
         <Testimonials />
         <Instagram />

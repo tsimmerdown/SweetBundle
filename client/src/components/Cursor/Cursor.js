@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 //   position: fixed;
 // `;
 
-const CustomCursor = styled(motion.div)`
+const CustomCursorTrail = styled(motion.div)`
   z-index: 100000;
   border-radius: 50%;
   width: ${(props) => (props.hover ? "40px" : "30px")};
@@ -27,34 +27,59 @@ const CustomCursor = styled(motion.div)`
   position: fixed;
 `;
 
+const CustomCursor = styled.div`
+  z-index: 100001;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  pointer-events: none;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+  background-color: black;
+  top: 10px;
+  left: 10px;
+`;
+
 const Cursor = ({ hover }) => {
   const cursorRef = useRef(null);
   const [x, setX] = useState();
   const [y, setY] = useState();
 
   useEffect(() => {
-    document.addEventListener("mousemove", (event) => {
+    const onMouseMove = (event) => {
       const { clientX, clientY } = event;
-      // const mouseX = clientX - cursorRef.current.clientWidth / 2;
-      // const mouseY = clientY - cursorRef.current.clientHeight / 2;
+      const mouseX = clientX - cursorRef.current.clientWidth / 2;
+      const mouseY = clientY - cursorRef.current.clientHeight / 2;
       if (cursorRef.current != null) {
-        setX(clientX - cursorRef.current.clientWidth / 2);
-        setY(clientY - cursorRef.current.clientHeight / 2);
+        setX(mouseX);
+        setY(mouseY);
       }
-      // cursorRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    });
-  }, []);
+      document.getElementById(
+        "cursor"
+      ).style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+    };
+  });
 
   return (
-    <CustomCursor
-      hover={hover}
-      animate={{ y: y, x: x }}
-      transition={{
-        ease: "linear",
-        duration: 0.2,
-      }}
-      ref={cursorRef}
-    />
+    <>
+      <CustomCursor id="cursor" hover={hover} ref={cursorRef} />
+      <CustomCursorTrail
+        hover={hover}
+        animate={{ y: y, x: x }}
+        transition={{
+          ease: "linear",
+          duration: 0.2,
+        }}
+        ref={cursorRef}
+      />
+    </>
   );
 };
 

@@ -62,7 +62,8 @@ const Navbar = () => {
             handleHover();
           }}
         >
-          <Typography
+          <img src="./images/Logo.png" style={{ height: "100px" }} />
+          {/* <Typography
             variant="h4"
             style={{
               margin: " 1vh 0",
@@ -72,7 +73,7 @@ const Navbar = () => {
             }}
           >
             Sweet Bundle
-          </Typography>
+          </Typography> */}
         </Link>
         <Link to="/order">
           <ButtonLink name={"Order"} />

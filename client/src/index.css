@@ -20,6 +20,7 @@ code {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color: white;
+  cursor: none;
 }
 
 body::-webkit-scrollbar {
