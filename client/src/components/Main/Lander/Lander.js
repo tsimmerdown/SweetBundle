@@ -3,22 +3,12 @@ import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 const FallingStrawBerries = styled.div`
-  height: 85vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   align-items: center;
-  // background: radial-gradient(
-  //   farthest-corner at 120% 10%,
-  //   #383838,
-  //   #404040,
-  //   #484848,
-  //   #505050,
-  //   #686868,
-  //   #686868,
-  //   #686868,
-  //   #686868
-  // );
-  background: #383838;
+
+  background: #ebd6d3;
 `;
 
 const TextCont = styled.div`
@@ -30,10 +20,13 @@ const TextCont = styled.div`
 
 const MainButton = styled(Button)`
   && {
-    background-color: #990000;
+    background-color: #383838;
     border-radius: 50px;
     color: white;
-    ::hover {
+    height: 5vh;
+    width: 10vw;
+    font-size: 17px;
+    :hover {
       color: black;
     }
   }
@@ -47,14 +40,32 @@ const Lander = () => {
         <Typography variant="body1" className="body">
           Satisfy your sweet tooth
         </Typography>
-        <MainButton variant="contained" size="large">
-          ORDER NOW
-        </MainButton>
+        <MainButton variant="contained">ORDER NOW</MainButton>
       </TextCont>
+      <img
+        src="./images/LanderCup.png"
+        alt="Strawberry cup"
+        style={{
+          position: "absolute",
+          right: "18vw",
+          top: "5vh",
+          opacity: 0.5,
+        }}
+      />
+      <img
+        src="./images/LanderFlower.png"
+        alt="Strawberry bouqeut"
+        style={{
+          position: "absolute",
+          right: "30vw",
+          transform: "rotate(350deg)",
+          opacity: 0.9,
+        }}
+      />
       <img
         src="./images/Lander.png"
         alt="box of strawberries"
-        style={{ position: "absolute", right: "15vw" }}
+        style={{ position: "absolute", right: "17vw", top: "30vh" }}
       />
     </FallingStrawBerries>
   );

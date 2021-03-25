@@ -11,11 +11,12 @@ import {
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import { Link } from "react-router-dom";
 
 const FooterCont = styled.div`
   height: 40vh;
   width: 100%;
-  background: #303030;
+  background: #d3a6a9;
   .emailCont {
     display: flex;
     align-items: center;
@@ -64,7 +65,11 @@ const Input = styled(InputBase)`
 const StyledButton = styled(Button)`
   && {
     border-radius: 0 5px 5px 0;
-    background-color: #990000;
+    background-color: #383838;
+    color: white;
+    :hover {
+      color: black;
+    }
   }
 `;
 
@@ -116,18 +121,26 @@ const Footer = () => {
             orientation="horizontal"
             style={{ marginBottom: "2vh", background: "black" }}
           />
-          <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            About
-          </Typography>
-          <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            Menu
-          </Typography>
-          <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            Order
-          </Typography>
-          <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            FAQ
-          </Typography>
+          <Link to="about" style={{ textDecoration: "none", color: "black" }}>
+            <Typography variant="subtitle1" style={{ padding: "2px" }}>
+              About
+            </Typography>
+          </Link>
+          <Link to="menu" style={{ textDecoration: "none", color: "black" }}>
+            <Typography variant="subtitle1" style={{ padding: "2px" }}>
+              Menu
+            </Typography>
+          </Link>
+          <Link to="order" style={{ textDecoration: "none", color: "black" }}>
+            <Typography variant="subtitle1" style={{ padding: "2px" }}>
+              Order
+            </Typography>
+          </Link>
+          <Link to="faq" style={{ textDecoration: "none", color: "black" }}>
+            <Typography variant="subtitle1" style={{ padding: "2px" }}>
+              FAQ
+            </Typography>
+          </Link>
         </div>
         <div className="contactUs">
           <Typography variant="h5" style={{ padding: "2vh 0" }}>

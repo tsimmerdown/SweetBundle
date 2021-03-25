@@ -8,7 +8,9 @@ import {
   AccordionDetails,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 import Panels from "../Panels/Panels";
+import AccordionItem from "./AccordionItem";
 
 const FAQCont = styled(motion.div)`
   height: 100vh;
@@ -29,13 +31,6 @@ const Title = styled(motion(Typography))``;
 
 const AccordionList = styled.div`
   width: 50vw;
-`;
-
-const AccordionCont = styled(Accordion)`
-  && {
-    margin: 2vh 0;
-    background: #303030;
-  }
 `;
 
 const containerVariants = {
@@ -71,7 +66,7 @@ const FAQ = () => {
         animate="animate"
         exit="exit"
       >
-        <div style={{}}>
+        <div>
           <TitleCont>
             <div
               style={{
@@ -101,55 +96,26 @@ const FAQ = () => {
             </div>
           </TitleCont>
           <AccordionList>
-            <AccordionCont>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h6">
-                  Q: Why do we require full payment upon order?
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  This helps secure order and helps us run our company with
-                  working capital.
-                </Typography>
-              </AccordionDetails>
-            </AccordionCont>
-            <AccordionCont>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography variant="h6">Q: Do you offer shipping?</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  We currently only offer local delivery in the GTA and pick up
-                  in Markham.
-                </Typography>
-              </AccordionDetails>
-            </AccordionCont>
-            <AccordionCont>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography variant="h6">
-                  Q: Can I custom-order specific Goodies?
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Of course, we are here to satisfy your request to the best of
-                  our abilities.
-                </Typography>
-              </AccordionDetails>
-            </AccordionCont>
+            <AccordionItem
+              question="Q: Why do we require full payment upon order?"
+              answer="This helps secure order and helps us run our company with
+                  working capital."
+            />
+            <AccordionItem
+              question="Q: Do you offer shipping?"
+              answer=" We currently only offer local delivery in the GTA and pick up
+              in Markham."
+            />
+            <AccordionItem
+              question="Q: Can I custom-order specific Goodies?"
+              answer=" Of course, we are here to satisfy your request to the best of
+              our abilities."
+            />
+            <AccordionItem
+              question="Q: Where are you located?"
+              answer="  Sweet Bundle is located in Markham. Pickup currently only
+            available in Markham."
+            />
           </AccordionList>
         </div>
       </FAQCont>

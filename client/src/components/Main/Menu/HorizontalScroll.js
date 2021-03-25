@@ -33,15 +33,24 @@ const HorizontalTranslateContainer = styled.div.attrs(({ translateX }) => ({
   will-change: transform;
 `;
 
-const MainButton = styled(Button)`
-  && {
-    background-color: #990000;
-    border-radius: 50px;
-    color: white;
-    position: absolute;
-    bottom: 15%;
-    left: 46.5%;
-  }
+// const MainButton = styled(Button)`
+//   && {
+//     background-color: #990000;
+//     border-radius: 50px;
+//     color: white;
+//     position: absolute;
+//     bottom: 15%;
+//     left: 46.5%;
+//   }
+// `;
+
+const TextCont = styled.div`
+  min-height: 10vh;
+  min-width: 30vw;
+  position: absolute;
+  bottom: 10%;
+  left: 35%;
+  text-align: center;
 `;
 
 const Title = styled(motion(Typography))``;
@@ -128,9 +137,19 @@ const HorizontalScroll = ({ children }) => {
         </HorizontalTranslateContainer>
         <Wave src={wave} />
 
-        <MainButton variant="contained" size="large">
-          ORDER NOW
-        </MainButton>
+        <TextCont>
+          <Typography>
+            *Free Delivery – Scarborough, Markham, Richmond Hill (Restrictions
+            apply)
+          </Typography>
+          <Typography>
+            *Free Delivery on all orders over $50 (Restrictions apply)
+          </Typography>
+          <Typography>*$5 Flat Rate Delivery within GTA</Typography>
+          <Typography>
+            *At this time we do not offer shipping of our products
+          </Typography>
+        </TextCont>
         <div
           style={{
             height: "50vh",

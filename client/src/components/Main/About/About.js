@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Typography, Divider, IconButton, Avatar } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -6,7 +6,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import { motion } from "framer-motion";
 
-import Pic from "./ying.jpg";
+// import Pic from "./images/ying.jpg";
 import Panels from "../../Panels/Panels";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../../../actions/cursor";
@@ -72,7 +72,8 @@ const transitions = { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.9] };
 const About = () => {
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
-  const handleHover = () => {
+  const handleHover = (event) => {
+    console.log(event);
     setHover(!hover);
     dispatch(setCursor());
   };
@@ -84,7 +85,7 @@ const About = () => {
         width: "100%",
         display: "flex",
         alignItems: "center",
-        background: "#383838",
+        background: "#ebd6d3",
       }}
     >
       <AboutCont
@@ -95,11 +96,8 @@ const About = () => {
         exit="exit"
       >
         <Content>
-          <Image src={Pic} />
-          <Divider
-            orientation="vertical"
-            style={{ margin: "0 2vw", background: "white" }}
-          />
+          <Image src="./images/ying.jpg" />
+          <Divider orientation="vertical" style={{ margin: "0 2vw" }} />
           <div style={{ width: "50%", overflow: "hidden" }}>
             <div style={{ width: "50%", overflow: "hidden" }}>
               <Title

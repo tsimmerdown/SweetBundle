@@ -25,6 +25,7 @@ const CustomCursorTrail = styled(motion.div)`
   overflow: hidden;
   // transform: translate3d(0, 0, 0);
   position: fixed;
+  background: rgba(0, 0, 0, 0.3);
 `;
 
 const CustomCursor = styled.div`

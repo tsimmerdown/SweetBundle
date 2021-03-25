@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -10,13 +10,33 @@ import Cursor from "./components/Cursor/Cursor";
 import FAQ from "./components/FAQ/FAQ";
 import About from "./components/Main/About/About";
 import Menu from "./components/Main/Menu/Menu";
+import ScrollUp from "./components/ScrollUp/ScrollUp";
 
 function App() {
   const state = useSelector((state) => state.cursorState);
   const location = useLocation();
 
+  const [show, setShow] = useState(false);
+
+  const scrollHandler = () => {
+    console.log("hi");
+    if (window.pageYOffset > 0) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, [location]);
+
   return (
-    <>
+    <div onScroll={scrollHandler}>
       <Cursor hover={state} />
       <Navbar />
       <AnimatePresence exitBeforeEnter>
@@ -25,11 +45,14 @@ function App() {
           <Route path="/menu" component={Menu} exact />
           <Route path="/faq" component={FAQ} exact />
           {/* <Route path="/order" exact /> */}
-          <Route path="/" component={Main} exact />
+          <Route path="/">
+            <Main onScroll={scrollHandler} />
+          </Route>
         </Switch>
       </AnimatePresence>
+      <ScrollUp show={show} />
       <Footer />
-    </>
+    </div>
   );
 }
 

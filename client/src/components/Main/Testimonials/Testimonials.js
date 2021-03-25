@@ -24,7 +24,7 @@ const Text = styled.div`
 
 const Wave = styled.img`
   display: block;
-  background-color: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
 `;
 
 const HorizontalCont = styled(motion.div)`

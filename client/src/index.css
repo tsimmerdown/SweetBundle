@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #383838;
+  background-color: #ebd6d3;
 }
 
 code {
@@ -19,7 +19,6 @@ code {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  color: white;
   cursor: none;
 }
 
