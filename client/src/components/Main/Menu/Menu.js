@@ -59,6 +59,77 @@ const containerVariants = {
   },
 };
 
+const items = [
+  {
+    name: "Classic Berry",
+    sub: "Fresh strawberries dipped in tempered chocolate",
+    image: images[2].src,
+    pricing: [
+      "6 Strawberries - $12",
+      "9 Strawberries - $16",
+      "12 Strawberries - $20",
+      "15 Strawberries - $25",
+      "18 Strawberries - $30",
+    ],
+    options: [
+      "Milk Chocolate",
+      "White Chocolate",
+      "Dark Chocolate",
+      "Classic Cream Cheese Filled Strawberry",
+    ],
+    toppings: ["Oreo", "Skor", "Coconut"],
+    notes: ["*Toppings are $0.50 per strawberry"],
+  },
+  {
+    name: "Cake in a Cup",
+    sub: "Everything tastes better in a cup, so try ours ",
+    image: images[5].src,
+    pricing: ["Pick up only - $7"],
+    options: ["Oreo Cheesecake", "Strawberry Cheesecake"],
+    toppings: [],
+    notes: [],
+  },
+  {
+    name: "Bundle Bouquet",
+    sub: "Chocolate Covered Strawberry Arrangement",
+    image: images[6].src,
+    pricing: ["Mini Bundle (9) - $18", "Full Bundle (12) - $24"],
+    options: [],
+    toppings: [],
+    notes: [
+      "*Customize it by adding Lettering, Cakepops or Special Design/Décor",
+      "*Price includes choice of colour and simple design",
+    ],
+  },
+  {
+    name: "Cake Pops",
+    sub: "Comes in Vanilla, Chocolate, Oreo or Birthday Cake",
+    image: images[4].src,
+    pricing: ["1/2 Dozen - $10", "1 Dozen - $18"],
+    options: ["Chocolate", "Vanilla", "Birthday Cake"],
+    toppings: [],
+    notes: ["*One flavour per 1/2 dozen cake pops"],
+  },
+  {
+    name: "Bundle Up",
+    sub: "Create your own bundle",
+    image: images[8].src,
+    pricing: [],
+    options: [],
+    toppings: [],
+    notes: ["*Toppings are $0.50 per strawberry"],
+  },
+  {
+    name: "Cupcakes",
+    sub: "Everything tastes better in a cup, so try ours",
+    image: images[5].src,
+    pricing: ["1/2 Dozen - $16", "1 Dozen - $26"],
+    options: ["Chocolate", "Vanilla", "Birthday Cake", "Red Velvet"],
+    toppings: ["Chocolate", "Vanilla", "Strawberry", "Cream Cheese"],
+    notes: ["*One flavour per 1/2 dozen cupcakes"],
+  },
+];
+
 const Menu = () => {
   return (
     <>
@@ -71,41 +142,9 @@ const Menu = () => {
       >
         <HorizontalScroll>
           <CardsContainer>
-            <MenuItem
-              name={"Classic Berry"}
-              sub={"Your choice of White, Milk, Dark or Mix Choco Berry"}
-              image={images[2].src}
-            />
-            <MenuItem
-              name={"Cheesecake Berry"}
-              sub={
-                "Cheesecake filled strawberry ( Classic, Oreo or Chocolate )"
-              }
-              image={images[1].src}
-            />
-            <MenuItem
-              name={"Variety Bundle"}
-              sub={"A mixture of Chocolate and Cheesecake berries"}
-              image={images[1].src}
-            />
-            <MenuItem
-              name={"Bundle Bouquet"}
-              sub={"Chocolate Strawberry Arrangement"}
-              image={images[6].src}
-            />
-            <MenuItem
-              name={"Cake Pops"}
-              sub={"Comes in Vanilla, Chocolate, Oreo or Birthday Cake"}
-              image={images[4].src}
-            />
-            <MenuItem
-              name={"Bundle Up"}
-              sub={
-                "CYO: cake pops, chocolate strawberries, cheesecake filled strawberries"
-              }
-              image={images[8].src}
-            />
-            <MenuItem name={"Cupcakes"} sub={""} image={images[5].src} />
+            {items.map((item, key) => {
+              return <MenuItem item={item} key={key} />;
+            })}
           </CardsContainer>
         </HorizontalScroll>
       </HorizontalSection>
