@@ -8,6 +8,18 @@ import waveBackground from "./waveBackground.svg";
 // import Viewer from "./Viewer";
 // import ViewerItem from "./ViewerItem";
 
+const images = [
+  { id: 0, src: "./images/IMG_3619.jpg" },
+  { id: 1, src: "./images/IMG_3687.jpg" },
+  { id: 2, src: "./images/IMG_3805.jpg" },
+  { id: 3, src: "./images/IMG_3929.jpg" },
+  { id: 4, src: "./images/IMG_3986.jpg" },
+  { id: 5, src: "./images/IMG_4058.jpg" },
+  { id: 6, src: "./images/IMG_4078.jpg" },
+  { id: 7, src: "./images/IMG_4115.jpg" },
+  { id: 8, src: "./images/IMG_4153.jpg" },
+];
+
 const Cont = styled.div`
   height: 75vh;
   margin: auto;
@@ -19,7 +31,8 @@ const Cont = styled.div`
 `;
 
 const Image = styled.img`
-  height: 35rem;
+  height: ${(props) => (props.active ? "35rem" : "30rem")};
+  opacity: ${(props) => (props.active ? 1 : 0.6)};
 `;
 
 const Thumbnail = styled.img`
@@ -40,10 +53,6 @@ const ImageCarousel = () => {
     setValue(value);
   };
 
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
-
   return (
     <div style={{ height: "75vh", width: "100%", position: "relative" }}>
       <Wave src={waveBackground} />
@@ -58,38 +67,50 @@ const ImageCarousel = () => {
           value={value}
           onChange={changeHandler}
         >
+          {images.map((image, key) => {
+            return (
+              <Image
+                alt="temp"
+                src={image.src}
+                key={image.id}
+                active={image.id === value}
+              />
+            );
+          })}
+          {/* <Image alt="temp" src="./images/IMG_3619.jpg" />
           <Image alt="temp" src="./images/IMG_3619.jpg" />
           <Image alt="temp" src="./images/IMG_3619.jpg" />
-          <Image alt="temp" src="./images/IMG_3619.jpg" />
-          <Image alt="temp" src="./images/IMG_3619.jpg" />
+          <Image alt="temp" src="./images/IMG_3619.jpg" /> */}
           {/* <ViewerItem /> */}
         </Carousel>
         <Dots
           style={{ background: "transparent" }}
           value={value}
           onChange={changeHandler}
-          thumbnails={[
-            <Thumbnail
-              key={1}
-              className="img-example-small"
-              src={"./images/IMG_3619.jpg"}
-            />,
-            <Thumbnail
-              key={12}
-              className="img-example-small"
-              src={"./images/IMG_3619.jpg"}
-            />,
-            <Thumbnail
-              key={12}
-              className="img-example-small"
-              src={"./images/IMG_3619.jpg"}
-            />,
-            <Thumbnail
-              key={12}
-              className="img-example-small"
-              src={"./images/IMG_3619.jpg"}
-            />,
-          ]}
+          thumbnails={
+            [
+              // <Thumbnail
+              //   key={1}
+              //   className="img-example-small"
+              //   src={"./images/IMG_3619.jpg"}
+              // />,
+              // <Thumbnail
+              //   key={12}
+              //   className="img-example-small"
+              //   src={"./images/IMG_3619.jpg"}
+              // />,
+              // <Thumbnail
+              //   key={12}
+              //   className="img-example-small"
+              //   src={"./images/IMG_3619.jpg"}
+              // />,
+              // <Thumbnail
+              //   key={12}
+              //   className="img-example-small"
+              //   src={"./images/IMG_3619.jpg"}
+              // />,
+            ]
+          }
         />
         {/* <Viewer />
       <ImageList /> */}

@@ -12,7 +12,7 @@ const NavCont = styled.div`
   width: 100%;
   position: absolute;
   background-color: transparent;
-  z-index: 10000;
+  z-index: 1000;
   a {
     text-decoration: none;
   }

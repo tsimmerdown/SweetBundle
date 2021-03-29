@@ -49,8 +49,7 @@ const TextCont = styled.div`
   min-width: 30vw;
   position: absolute;
   bottom: 10%;
-  left: 35%;
-  text-align: center;
+  left: 5%;
 `;
 
 const Title = styled(motion(Typography))``;
@@ -150,15 +149,6 @@ const HorizontalScroll = ({ children }) => {
             *At this time we do not offer shipping of our products
           </Typography>
         </TextCont>
-        <div
-          style={{
-            height: "50vh",
-            position: "absolute",
-            //   background: "rgba(0, 0, 0, 0.05)",
-            width: "100%",
-            top: "25%",
-          }}
-        ></div>
       </StickyInnerContainer>
     </TallOuterContainer>
   );

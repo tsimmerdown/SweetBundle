@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FallingStrawBerries = styled.div`
   height: 95vh;
@@ -38,9 +39,11 @@ const Lander = () => {
       <TextCont>
         <Typography variant="h2">Bundle of Joy</Typography>
         <Typography variant="body1" className="body">
-          Satisfy your sweet tooth
+          Satisfy your sweet tooth with 1 🍓 at a time
         </Typography>
-        <MainButton variant="contained">ORDER NOW</MainButton>
+        <Link to="/order" style={{ textDecoration: "none" }}>
+          <MainButton variant="contained">ORDER NOW</MainButton>
+        </Link>
       </TextCont>
       <img
         src="./images/LanderCup.png"

@@ -11,6 +11,7 @@ import FAQ from "./components/FAQ/FAQ";
 import About from "./components/Main/About/About";
 import Menu from "./components/Main/Menu/Menu";
 import ScrollUp from "./components/ScrollUp/ScrollUp";
+import Order from "./components/Order/Order";
 
 function App() {
   const state = useSelector((state) => state.cursorState);
@@ -44,7 +45,7 @@ function App() {
           <Route path="/about" component={About} exact />
           <Route path="/menu" component={Menu} exact />
           <Route path="/faq" component={FAQ} exact />
-          {/* <Route path="/order" exact /> */}
+          <Route path="/order" component={Order} exact />
           <Route path="/">
             <Main onScroll={scrollHandler} />
           </Route>
