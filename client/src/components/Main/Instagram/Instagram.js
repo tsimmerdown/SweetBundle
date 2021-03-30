@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 import InstaFeed from "./InstaFeed";
+import Feed from "react-instagram-authless-feed";
 
 const InstaCont = styled.div`
   height: 50vh;
@@ -26,7 +27,14 @@ const Instagram = () => {
       <Typography variant="h4" style={{ marginBottom: "5vh" }}>
         Follow @sweetbundle.ying
       </Typography>
-      <InstaFeed account="sweetbundle.ying" numberOfMediaElements={5} />
+      <Feed
+        userName="sweetbundle.ying"
+        className="feed"
+        classNameLoading="Loading"
+        limit="5"
+      />
+
+      {/* <InstaFeed account="sweetbundle.ying" numberOfMediaElements={5} /> */}
     </InstaCont>
   );
 };
