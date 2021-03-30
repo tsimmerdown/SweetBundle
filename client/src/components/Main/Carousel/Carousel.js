@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Carousel, { Dots, slidesToShowPlugin } from "@brainhubeu/react-carousel";
+import Carousel, { Dots, arrowsPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import waveBackground from "./waveBackground.svg";
-
-// import ImageList from "./ImageList";
-// import Viewer from "./Viewer";
-// import ViewerItem from "./ViewerItem";
+import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 const images = [
   { id: 0, src: "./images/IMG_3619.jpg" },
@@ -51,6 +49,23 @@ const ImageCarousel = () => {
 
   const changeHandler = (value) => {
     setValue(value);
+    console.log(value);
+  };
+
+  const activeHandler = (id) => {
+    let currId = 0;
+    if (value < 0) {
+      currId = (value % images.length) + images.length;
+      if (id === currId) {
+        return true;
+      }
+    }
+
+    if (id === value % images.length) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -59,11 +74,14 @@ const ImageCarousel = () => {
       <Cont>
         <Carousel
           slidesPerPage={3}
-          addArrowClickHandler
           arrows
+          infinite
+          addArrowClickHandler
           clickToChange
           stopAutoPlayOnHover
           centered
+          autoPlay={10000}
+          animationSpeed={800}
           value={value}
           onChange={changeHandler}
         >
@@ -73,47 +91,16 @@ const ImageCarousel = () => {
                 alt="temp"
                 src={image.src}
                 key={image.id}
-                active={image.id === value}
+                active={activeHandler(image.id)}
               />
             );
           })}
-          {/* <Image alt="temp" src="./images/IMG_3619.jpg" />
-          <Image alt="temp" src="./images/IMG_3619.jpg" />
-          <Image alt="temp" src="./images/IMG_3619.jpg" />
-          <Image alt="temp" src="./images/IMG_3619.jpg" /> */}
-          {/* <ViewerItem /> */}
         </Carousel>
         <Dots
           style={{ background: "transparent" }}
           value={value}
           onChange={changeHandler}
-          thumbnails={
-            [
-              // <Thumbnail
-              //   key={1}
-              //   className="img-example-small"
-              //   src={"./images/IMG_3619.jpg"}
-              // />,
-              // <Thumbnail
-              //   key={12}
-              //   className="img-example-small"
-              //   src={"./images/IMG_3619.jpg"}
-              // />,
-              // <Thumbnail
-              //   key={12}
-              //   className="img-example-small"
-              //   src={"./images/IMG_3619.jpg"}
-              // />,
-              // <Thumbnail
-              //   key={12}
-              //   className="img-example-small"
-              //   src={"./images/IMG_3619.jpg"}
-              // />,
-            ]
-          }
         />
-        {/* <Viewer />
-      <ImageList /> */}
       </Cont>
     </div>
   );
