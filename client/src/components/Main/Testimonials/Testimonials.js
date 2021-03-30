@@ -61,15 +61,34 @@ const Testimonials = () => {
             duration: "50",
           }}
         >
-          <ContItem text={"They taste just as good as they look!!! <3"} img />
           <ContItem
             text={
-              "They taste just as good as they look!!! <3They taste just as good as they look!!! <3They taste just as good as they look!!! <3They taste just as good as they look!!! <3"
+              "These cheesecake cups are gonna hit differenttt @sweetbundle.ying"
             }
-            img
+            user={"nxilpatxl"}
           />
-          <ContItem text={"They taste just as good as they look!!! <3"} img />
-          <ContItem text={"They taste just as good as they look!!! <3"} img />
+          <ContItem
+            text={"They taste just as good as they look!!! <3"}
+            user={"sitarasharma"}
+          />
+          <ContItem
+            text={
+              "A bouquet for a future mama!! A perfect gift & satisfies those cravings! Looks so amazing. I highly recommend @sweetbundle.ying"
+            }
+            user={"mariadivabelen"}
+          />
+          <ContItem
+            text={
+              "So gooood !!! <3<3<3 Thank you for the yummy oreo cheescake & cute proposal gift!! @sweetbundle.ying"
+            }
+            user={"munchnbinge"}
+          />
+          <ContItem
+            text={
+              "So gooood !!! <3<3<3 Thank you for the yummy oreo cheescake & cute proposal gift!! @sweetbundle.ying"
+            }
+            user={"munchnbinge"}
+          />
         </Cont>
       </HorizontalCont>
       <Wave src={wave} />
