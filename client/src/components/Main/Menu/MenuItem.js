@@ -26,13 +26,6 @@ const Image = styled(motion.img)`
   width: 100%;
 `;
 
-const Prices = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 5vh 0 0 1vw;
-  font-weight: 700;
-`;
-
 const MenuItem = (props) => {
   const [open, setOpen] = useState(false);
 

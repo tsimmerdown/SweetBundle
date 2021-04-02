@@ -78,7 +78,10 @@ const items = [
       "Classic Cream Cheese Filled Strawberry",
     ],
     toppings: ["Oreo", "Skor", "Coconut"],
-    notes: ["*Toppings are $0.50 per strawberry"],
+    notes: [
+      "*Toppings are $0.50 per strawberry",
+      "*Larger quantities available on request",
+    ],
   },
   {
     name: "Cake in a Cup",
@@ -87,13 +90,16 @@ const items = [
     pricing: ["Pick up only - $7"],
     options: ["Oreo Cheesecake", "Strawberry Cheesecake"],
     toppings: [],
-    notes: [],
+    notes: ["*Pick up only or purchase an add-on item to your order"],
   },
   {
     name: "Bundle Bouquet",
     sub: "Chocolate Covered Strawberry Arrangement",
     image: images[6].src,
-    pricing: ["Mini Bundle (9) - $18", "Full Bundle (12) - $24"],
+    pricing: [
+      "Mini Bundle (9 Strawberries and colour of choice) - $18",
+      "Full Bundle (12 Strawberries and colour of choice) - $24",
+    ],
     options: [],
     toppings: [],
     notes: [
@@ -108,16 +114,27 @@ const items = [
     pricing: ["1/2 Dozen - $10", "1 Dozen - $18"],
     options: ["Chocolate", "Vanilla", "Birthday Cake"],
     toppings: [],
-    notes: ["*One flavour per 1/2 dozen cake pops"],
+    notes: [
+      "*One flavour per 1/2 dozen cake pops",
+      "*Price includes choice of colour and white sprinkle",
+    ],
   },
   {
     name: "Bundle Up",
     sub: "Create your own bundle",
     image: images[8].src,
-    pricing: [],
-    options: [],
-    toppings: [],
-    notes: ["*Toppings are $0.50 per strawberry"],
+    pricing: ["12 Items - $24", "18 Items - $34"],
+    options: [
+      "Milk Chocolate",
+      "White Chocolate",
+      "Dark Chocolate",
+      "Classic Cream Cheese Filled Strawberry",
+    ],
+    toppings: ["Oreo", "Skor", "Coconut"],
+    notes: [
+      "*Toppings are $0.50 per strawberry",
+      "*Larger quantities available on request",
+    ],
   },
   {
     name: "Cupcakes",

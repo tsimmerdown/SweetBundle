@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { List, ListItem, Modal, Paper, Typography } from "@material-ui/core";
+import { Modal, Paper, Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
 
 const ModalContainer = styled(Modal)`
@@ -85,20 +85,26 @@ const ItemModal = (props) => {
           transition={transitions}
         >
           <Typography variant="h4">{props.name}</Typography>
+          <span>
+            Choice of Chocolate Covered Strawberries, Cream Cheese Filled
+            Strawberries & Cake Pops
+          </span>
           <ContentCont>
             <ContentImage src={props.image} />
             <ContentText>
               <ItemFeatures>
                 <Typography variant="h6">Pricing</Typography>
                 {props.pricing.map((price) => {
-                  return <span>{price}</span>;
+                  return <Typography variant="subtitle1">{price}</Typography>;
                 })}
               </ItemFeatures>
               {props.options.length !== 0 && (
                 <ItemFeatures>
                   <Typography variant="h6">Options</Typography>
                   {props.options.map((option) => {
-                    return <span>{option}</span>;
+                    return (
+                      <Typography variant="subtitle1">{option}</Typography>
+                    );
                   })}
                 </ItemFeatures>
               )}
@@ -106,7 +112,9 @@ const ItemModal = (props) => {
                 <ItemFeatures>
                   <Typography variant="h6">Toppings</Typography>
                   {props.toppings.map((topping) => {
-                    return <span>{topping}</span>;
+                    return (
+                      <Typography variant="subtitle1">{topping}</Typography>
+                    );
                   })}
                 </ItemFeatures>
               )}
@@ -118,10 +126,11 @@ const ItemModal = (props) => {
                     position: "absolute",
                     right: "1vw",
                     bottom: "1vh",
+                    whiteSpace: "normal",
                   }}
                 >
                   {props.notes.map((note) => {
-                    return <span>{note}</span>;
+                    return <Typography variant="subtitle1">{note}</Typography>;
                   })}
                 </div>
               )}

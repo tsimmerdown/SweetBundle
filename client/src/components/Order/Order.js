@@ -88,10 +88,7 @@ const Order = () => {
   const [delivery, setDelivery] = useState(false);
 
   const formik = useFormik({
-    initialValues: {
-      //   email: "foobar@example.com",
-      //   phone: "foobar",
-    },
+    initialValues: {},
     validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -138,6 +135,7 @@ const Order = () => {
             </Title>
           </div>
         </TitleCont>
+
         <form onSubmit={formik.handleSubmit} style={{ width: "50vw" }}>
           <InputCont style={{ display: "flex" }}>
             <TextField
@@ -238,7 +236,7 @@ const Order = () => {
             fullWidth
             type="submit"
           >
-            Submit
+            Order
           </SubmitButton>
         </form>
       </Cont>

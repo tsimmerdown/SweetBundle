@@ -5,15 +5,17 @@ import { motion } from "framer-motion";
 
 import wave from "./wave.svg";
 import ContItem from "./ContItem";
+import FadeInWhenVisible from "../../FadeWhenVisible";
 
 const TestCont = styled.div`
-  height: 50vh;
+  height: 80vh;
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 const Text = styled.div`
-  top: 30%;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -24,7 +26,8 @@ const Text = styled.div`
 
 const Wave = styled.img`
   display: block;
-  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  background: transparent;
 `;
 
 const HorizontalCont = styled(motion.div)`
@@ -43,10 +46,14 @@ const Cont = styled(motion.div)`
 const Testimonials = () => {
   return (
     <TestCont>
+      <Wave src={wave} />
+
       <Text>
-        <Typography variant="h4">
-          What our community has to say about us
-        </Typography>
+        <FadeInWhenVisible>
+          <Typography variant="h4">
+            What our community has to say about us
+          </Typography>
+        </FadeInWhenVisible>
       </Text>
       <HorizontalCont>
         <Cont
@@ -91,7 +98,6 @@ const Testimonials = () => {
           />
         </Cont>
       </HorizontalCont>
-      <Wave src={wave} />
     </TestCont>
   );
 };

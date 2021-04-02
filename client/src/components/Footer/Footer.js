@@ -1,16 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Button,
-  InputBase,
-  Typography,
-  IconButton,
-  Avatar,
-  Divider,
-} from "@material-ui/core";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import { Button, InputBase, Typography, Divider } from "@material-ui/core";
+
 import { Link } from "react-router-dom";
 
 const FooterCont = styled.div`
@@ -43,8 +34,7 @@ const BottomCont = styled.div`
 
   .icon{
     flex-grow: 2;
-    padding: 10vh 0;
-
+    padding: 3vh 0;
   }
   .pages{
     flex-grow: 1;
@@ -86,32 +76,17 @@ const Footer = () => {
             id="input"
             placeholder="Email Address..."
             style={{ flexGrow: 1, fontSize: "14px", background: "white" }}
-            // onChange={changeHandler}
-            // onKeyPress={searchHandler}
           />
           <StyledButton variant="contained">Sign up</StyledButton>
         </div>
       </div>
       <BottomCont>
         <div className="icon">
-          <Typography variant="h4">Sweet Bundle</Typography>
-          <div style={{ margin: "1vh 0" }}>
-            <IconButton size="small">
-              <Avatar>
-                <FacebookIcon />
-              </Avatar>
-            </IconButton>
-            <IconButton size="small">
-              <Avatar>
-                <TwitterIcon />
-              </Avatar>
-            </IconButton>
-            <IconButton size="small">
-              <Avatar>
-                <InstagramIcon />
-              </Avatar>
-            </IconButton>
-          </div>
+          <img
+            src="./images/Logo.png"
+            alt="Logo"
+            style={{ height: "15vh", margin: "4vh 1vw" }}
+          />
         </div>
         <div className="pages">
           <Typography variant="h5" style={{ padding: "2vh 0" }}>
@@ -151,7 +126,7 @@ const Footer = () => {
             style={{ marginBottom: "2vh", background: "black" }}
           />
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
-            <strong>Email: </strong>helloworld@gmail.com
+            <strong>Email: </strong>sweetbundle.ying@gmail.com
           </Typography>
           <Typography variant="subtitle1" style={{ padding: "2px" }}>
             <strong>Telephone: </strong>(123) 456 7890

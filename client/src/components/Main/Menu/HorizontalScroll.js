@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Typography, Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
 
 import wave from "./wave.svg";
@@ -32,17 +32,6 @@ const HorizontalTranslateContainer = styled.div.attrs(({ translateX }) => ({
   height: 100%;
   will-change: transform;
 `;
-
-// const MainButton = styled(Button)`
-//   && {
-//     background-color: #990000;
-//     border-radius: 50px;
-//     color: white;
-//     position: absolute;
-//     bottom: 15%;
-//     left: 46.5%;
-//   }
-// `;
 
 const TextCont = styled.div`
   min-height: 10vh;
@@ -110,7 +99,7 @@ const HorizontalScroll = ({ children }) => {
             overflow: "hidden",
             position: "absolute",
             marginBottom: "10vh",
-            top: "15%",
+            top: "17%",
             left: "43.5%",
           }}
         >
@@ -137,6 +126,10 @@ const HorizontalScroll = ({ children }) => {
         <Wave src={wave} />
 
         <TextCont>
+          <Typography>
+            *Please Note: Sweet Bundle is not a nut-free/allergen-free site,
+            therefore cannot guarantee cupcakes are nut-free/allergen-free
+          </Typography>
           <Typography>
             *Free Delivery – Scarborough, Markham, Richmond Hill (Restrictions
             apply)

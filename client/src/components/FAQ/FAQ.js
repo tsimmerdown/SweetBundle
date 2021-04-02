@@ -1,13 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import {
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Typography } from "@material-ui/core";
 
 import Panels from "../Panels/Panels";
 import AccordionItem from "./AccordionItem";
@@ -115,6 +109,14 @@ const FAQ = () => {
               question="Q: Where are you located?"
               answer="  Sweet Bundle is located in Markham. Pickup currently only
             available in Markham."
+            />
+            <AccordionItem
+              question="Q: What form of payment do you accept?"
+              answer="All payments are to be made by e-transfer to the e-mail provided to you once an order confirmation e-mail has been sent to you."
+            />
+            <AccordionItem
+              question="Q: Do you offer vegan or gluten-free treats?"
+              answer="Sweet Bundle does not offer vegan or gluten-free options at this time."
             />
           </AccordionList>
         </div>

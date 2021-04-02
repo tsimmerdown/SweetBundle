@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Typography, Card, Avatar } from "@material-ui/core";
 import styled from "styled-components";
 
@@ -32,18 +32,8 @@ const AvatarIcon = styled(Avatar)`
 `;
 
 const ContItem = ({ text, user }) => {
-  const [open, setOpen] = useState(false);
-
   return (
-    <CardContent
-      elevation={3}
-      onMouseEnter={() => {
-        setOpen(true);
-      }}
-      onMouseLeave={() => {
-        setOpen(false);
-      }}
-    >
+    <CardContent elevation={3}>
       <AvatarIcon>
         <PersonIcon style={{ fontSize: "5vh" }} />
       </AvatarIcon>

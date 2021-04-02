@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 
 import { setCursor } from "../../actions/cursor";
 
-const Mask = styled.div``;
-
 const Rect = styled(motion.div)`
   height: 3px;
   width: 80%;

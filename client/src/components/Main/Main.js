@@ -5,8 +5,7 @@ import Lander from "./Lander/Lander";
 import Info from "./Info/Info";
 import Testimonials from "./Testimonials/Testimonials";
 import Instagram from "./Instagram/Instagram";
-import Menu from "./Menu/Menu";
-import About from "./About/About";
+
 import Panels from "../Panels/Panels";
 import Carousel from "./Carousel/Carousel";
 
@@ -44,8 +43,6 @@ const Main = () => {
         exit="exit"
       >
         <Lander />
-        {/* <About />
-      <Menu /> */}
         <Carousel />
         <Info />
         <Testimonials />

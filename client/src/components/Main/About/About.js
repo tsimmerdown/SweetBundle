@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Typography, Divider, IconButton, Avatar } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -6,7 +6,6 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import { motion } from "framer-motion";
 
-// import Pic from "./images/ying.jpg";
 import Panels from "../../Panels/Panels";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../../../actions/cursor";
@@ -67,7 +66,7 @@ const containerVariants = {
   },
 };
 
-const transitions = { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.9] };
+//const transitions = { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.9] };
 
 const About = () => {
   const dispatch = useDispatch();

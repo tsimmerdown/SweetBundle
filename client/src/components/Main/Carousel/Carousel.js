@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Carousel, { Dots, arrowsPlugin } from "@brainhubeu/react-carousel";
+import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import waveBackground from "./waveBackground.svg";
-import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 const images = [
   { id: 0, src: "./images/IMG_3619.jpg" },
@@ -31,11 +29,6 @@ const Cont = styled.div`
 const Image = styled.img`
   height: ${(props) => (props.active ? "35rem" : "30rem")};
   opacity: ${(props) => (props.active ? 1 : 0.6)};
-`;
-
-const Thumbnail = styled.img`
-  height: 100px;
-  background: transparent;
 `;
 
 const Wave = styled.img`

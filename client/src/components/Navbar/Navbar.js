@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Typography, Divider } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import ScrollChange from "../ScrollChange/ScrollChange";
 import ButtonLink from "./ButtonLink";
 import { useDispatch } from "react-redux";
 import { setCursor } from "../../actions/cursor";
 
 const NavCont = styled.div`
+  height: 15vh;
+  padding: 0 15vw;
+  top: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   background-color: transparent;
   z-index: 1000;
@@ -17,23 +21,6 @@ const NavCont = styled.div`
     text-decoration: none;
   }
 `;
-
-const Cont = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  height: 10vh;
-  width: 100%;
-  padding: 0 15vw;
-  top: 0;
-`;
-
-const LinkList = styled.div`
-  display: flex;
-`;
-
-// const Links = ["About", "Menu", "Order", "FAQ"];
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -45,45 +32,35 @@ const Navbar = () => {
 
   return (
     <NavCont>
-      <Cont>
-        <Link to="/about">
-          <ButtonLink name={"About"} />
-        </Link>
-        <Link to="/menu">
-          <ButtonLink name={"Menu"} />
-        </Link>
+      <Link to="/about">
+        <ButtonLink name={"About"} />
+      </Link>
+      <Link to="/menu">
+        <ButtonLink name={"Menu"} />
+      </Link>
 
-        <Link
-          to="/"
-          onMouseEnter={() => {
-            handleHover();
-          }}
-          onMouseLeave={() => {
-            handleHover();
-          }}
-        >
-          <img src="./images/Logo.png" style={{ height: "100px" }} />
-          {/* <Typography
-            variant="h4"
-            style={{
-              margin: " 1vh 0",
-              flexGrow: 1,
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            Sweet Bundle
-          </Typography> */}
-        </Link>
-        <Link to="/order">
-          <ButtonLink name={"Order"} />
-        </Link>
+      <Link
+        to="/"
+        onMouseEnter={() => {
+          handleHover();
+        }}
+        onMouseLeave={() => {
+          handleHover();
+        }}
+      >
+        <img
+          src="./images/Logo.png"
+          style={{ height: "125px" }}
+          alt="Sweet Bundle"
+        />
+      </Link>
+      <Link to="/order">
+        <ButtonLink name={"Order"} />
+      </Link>
 
-        <Link to="/faq">
-          <ButtonLink name={"FAQ"} />
-        </Link>
-      </Cont>
-      {/* </ScrollChange> */}
+      <Link to="/faq">
+        <ButtonLink name={"FAQ"} />
+      </Link>
     </NavCont>
   );
 };
