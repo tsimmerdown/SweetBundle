@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
-import Feed from "react-instagram-authless-feed";
+// import Feed from "react-instagram-authless-feed";
 
 const InstaCont = styled.div`
   height: 50vh;
