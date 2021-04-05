@@ -20,7 +20,6 @@ function App() {
   const [show, setShow] = useState(false);
 
   const scrollHandler = () => {
-    console.log("hi");
     if (window.pageYOffset > 0) {
       setShow(true);
     } else {

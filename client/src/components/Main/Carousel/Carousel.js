@@ -53,7 +53,6 @@ const ImageCarousel = () => {
 
   const changeHandler = (value) => {
     setValue(value);
-    console.log(value);
   };
 
   const activeHandler = (id) => {
