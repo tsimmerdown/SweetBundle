@@ -26,12 +26,12 @@ const Instagram = () => {
       <Typography variant="h4" style={{ marginBottom: "5vh" }}>
         Follow @sweetbundle.ying
       </Typography>
-      <Feed
+      {/* <Feed
         userName="sweetbundle.ying"
         className="feed"
         classNameLoading="Loading"
         limit="5"
-      />
+      /> */}
     </InstaCont>
   );
 };
