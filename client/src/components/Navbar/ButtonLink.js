@@ -8,7 +8,6 @@ import { setCursor } from "../../actions/cursor";
 
 const Rect = styled(motion.div)`
   height: 3px;
-  width: 80%;
   background: black;
 `;
 

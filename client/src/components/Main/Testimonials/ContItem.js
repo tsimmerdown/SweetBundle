@@ -4,13 +4,13 @@ import styled from "styled-components";
 
 import RightQuote from "./Quote.svg";
 import PersonIcon from "@material-ui/icons/Person";
+import { deviceSize } from "../../responsive";
 
 const CardContent = styled(Card)`
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 20vw;
-  width: 20vw;
   height: 32vh;
   margin: 0 1vw;
   position: relative;
@@ -18,6 +18,11 @@ const CardContent = styled(Card)`
   && {
     background-color: rgba(0, 0, 0, 0.2);
     white-space: normal;
+  }
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    && {
+      width: 75vw;
+    }
   }
 `;
 

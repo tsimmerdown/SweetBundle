@@ -7,10 +7,12 @@ import { Button, Card, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import FadeInWhenVisible from "../../FadeWhenVisible";
+import { deviceSize } from "../../responsive";
 
 const InfoCont = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 0 15vw;
@@ -33,6 +35,14 @@ const CardCont = styled(Card)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+    @media screen and (max-width: ${deviceSize.mobile}px) {
+      height: 35vh;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+    }
   }
 `;
 

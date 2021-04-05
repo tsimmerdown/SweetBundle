@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import { motion } from "framer-motion";
+import { deviceSize } from "../responsive";
 
 const Cont = styled(motion.div)`
   position: fixed;
@@ -12,6 +13,10 @@ const Cont = styled(motion.div)`
   border-radius: 50%;
   background: #d3a6a9;
   display: flex;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const ScrollUp = () => {

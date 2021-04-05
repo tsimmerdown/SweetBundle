@@ -16,6 +16,7 @@
     "react-instagram-authless-feed": "github:jamesmoriarty/react-instagram-authless-feed#v2.0.0",
     "react-intersection-observer": "^8.31.0",
     "react-redux": "^7.2.2",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "recompose": "^0.30.0",

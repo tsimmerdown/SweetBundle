@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import wave from "./wave.svg";
 import ContItem from "./ContItem";
 import FadeInWhenVisible from "../../FadeWhenVisible";
+import { deviceSize } from "../../responsive";
+import { useMediaQuery } from "react-responsive";
 
 const TestCont = styled.div`
   height: 80vh;
@@ -13,6 +15,11 @@ const TestCont = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    flex-direction: column;
+    margin: 10vh 0;
+    height: auto;
+  }
 `;
 
 const Text = styled.div`
@@ -22,6 +29,12 @@ const Text = styled.div`
   justify-content: center;
   max-width: 20vw;
   margin: 0 8vw;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    max-width: 100%;
+    position: relative;
+    margin: 10vh 0;
+    text-align: center;
+  }
 `;
 
 const Wave = styled.img`
@@ -34,19 +47,27 @@ const HorizontalCont = styled(motion.div)`
   white-space: nowrap;
   position: absolute;
   width: 60vw;
-  left-padding: 60%;
   right: 0;
   overflow: hidden;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    position: static;
+    width: 100%;
+    padding-left: 0;
+  }
 `;
 
 const Cont = styled(motion.div)`
   display: flex;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    display: inline-flex;
+  }
 `;
 
 const Testimonials = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
   return (
     <TestCont>
-      <Wave src={wave} />
+      {!isMobile && <Wave src={wave} />}
 
       <Text>
         <FadeInWhenVisible>
@@ -61,9 +82,10 @@ const Testimonials = () => {
             x: "0",
           }}
           animate={{
-            x: "-100%",
+            x: "-80%",
           }}
           transition={{
+            ease: "linear",
             repeat: Infinity,
             duration: "50",
           }}

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import waveBackground from "./waveBackground.svg";
+import { deviceSize } from "../../responsive";
+import { useMediaQuery } from "react-responsive";
 
 const images = [
   { id: 0, src: "./images/IMG_3619.jpg" },
@@ -17,18 +19,27 @@ const images = [
 ];
 
 const Cont = styled.div`
-  height: 75vh;
+  padding-bottom: 5vh;
   margin: auto;
-  width: 80vw;
+  width: 70vw;
   button {
     background: transparent;
   }
   position: relative;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    height: auto;
+    width: 100vw;
+  }
 `;
 
 const Image = styled.img`
   height: ${(props) => (props.active ? "35rem" : "30rem")};
   opacity: ${(props) => (props.active ? 1 : 0.6)};
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    height: 100%;
+    width: 70vw;
+  }
 `;
 
 const Wave = styled.img`
@@ -60,13 +71,14 @@ const ImageCarousel = () => {
       return false;
     }
   };
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
 
   return (
-    <div style={{ height: "75vh", width: "100%", position: "relative" }}>
+    <div>
       <Wave src={waveBackground} />
       <Cont>
         <Carousel
-          slidesPerPage={3}
+          slidesPerPage={isMobile ? 1 : 3}
           arrows
           infinite
           addArrowClickHandler

@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { Button, InputBase, Typography, Divider } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import { deviceSize } from "../responsive";
 
 const FooterCont = styled.div`
-  height: 40vh;
   width: 100%;
   background: #d3a6a9;
   .emailCont {
@@ -24,6 +25,17 @@ const FooterCont = styled.div`
     align-content: center;
     flex-grow: 1;
     margin-left: 20vw;
+  }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 10px 0;
+    .emailCont {
+      flex-direction: column;
+    }
+    .textCont {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
 `;
 
@@ -64,6 +76,8 @@ const StyledButton = styled(Button)`
 `;
 
 const Footer = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return (
     <FooterCont>
       <div className="emailCont">
@@ -81,42 +95,46 @@ const Footer = () => {
         </div>
       </div>
       <BottomCont>
-        <div className="icon">
-          <img
-            src="./images/Logo.png"
-            alt="Logo"
-            style={{ height: "15vh", margin: "4vh 1vw" }}
-          />
-        </div>
-        <div className="pages">
-          <Typography variant="h5" style={{ padding: "2vh 0" }}>
-            Pages
-          </Typography>
-          <Divider
-            orientation="horizontal"
-            style={{ marginBottom: "2vh", background: "black" }}
-          />
-          <Link to="about" style={{ textDecoration: "none", color: "black" }}>
-            <Typography variant="subtitle1" style={{ padding: "2px" }}>
-              About
+        {!isMobile && (
+          <div className="icon">
+            <img
+              src="./images/Logo.png"
+              alt="Logo"
+              style={{ height: "15vh", margin: "4vh 1vw" }}
+            />
+          </div>
+        )}
+        {!isMobile && (
+          <div className="pages">
+            <Typography variant="h5" style={{ padding: "2vh 0" }}>
+              Pages
             </Typography>
-          </Link>
-          <Link to="menu" style={{ textDecoration: "none", color: "black" }}>
-            <Typography variant="subtitle1" style={{ padding: "2px" }}>
-              Menu
-            </Typography>
-          </Link>
-          <Link to="order" style={{ textDecoration: "none", color: "black" }}>
-            <Typography variant="subtitle1" style={{ padding: "2px" }}>
-              Order
-            </Typography>
-          </Link>
-          <Link to="faq" style={{ textDecoration: "none", color: "black" }}>
-            <Typography variant="subtitle1" style={{ padding: "2px" }}>
-              FAQ
-            </Typography>
-          </Link>
-        </div>
+            <Divider
+              orientation="horizontal"
+              style={{ marginBottom: "2vh", background: "black" }}
+            />
+            <Link to="about" style={{ textDecoration: "none", color: "black" }}>
+              <Typography variant="subtitle1" style={{ padding: "2px" }}>
+                About
+              </Typography>
+            </Link>
+            <Link to="menu" style={{ textDecoration: "none", color: "black" }}>
+              <Typography variant="subtitle1" style={{ padding: "2px" }}>
+                Menu
+              </Typography>
+            </Link>
+            <Link to="order" style={{ textDecoration: "none", color: "black" }}>
+              <Typography variant="subtitle1" style={{ padding: "2px" }}>
+                Order
+              </Typography>
+            </Link>
+            <Link to="faq" style={{ textDecoration: "none", color: "black" }}>
+              <Typography variant="subtitle1" style={{ padding: "2px" }}>
+                FAQ
+              </Typography>
+            </Link>
+          </div>
+        )}
         <div className="contactUs">
           <Typography variant="h5" style={{ padding: "2vh 0" }}>
             Contact Us
