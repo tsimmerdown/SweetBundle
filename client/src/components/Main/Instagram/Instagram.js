@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
+import { useMediaQuery } from "react-responsive";
+import { deviceSize } from "../../responsive";
 // import Feed from "react-instagram-authless-feed";
 
 const InstaCont = styled.div`
@@ -21,9 +23,14 @@ const InstaCont = styled.div`
 `;
 
 const Instagram = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return (
     <InstaCont>
-      <Typography variant="h4" style={{ marginBottom: "5vh" }}>
+      <Typography
+        variant={isMobile ? "h5" : "h4"}
+        style={{ marginBottom: "5vh" }}
+      >
         Follow @sweetbundle.ying
       </Typography>
       {/* <Feed

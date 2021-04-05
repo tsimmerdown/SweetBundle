@@ -71,7 +71,7 @@ const Testimonials = () => {
 
       <Text>
         <FadeInWhenVisible>
-          <Typography variant="h4">
+          <Typography variant={isMobile ? "h5" : "h4"}>
             What our community has to say about us
           </Typography>
         </FadeInWhenVisible>
