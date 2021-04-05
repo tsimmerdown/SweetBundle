@@ -14,8 +14,7 @@ const Cont = styled(motion.div)`
   background: #d3a6a9;
   display: flex;
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    width: 30px;
-    height: 30px;
+    display: none;
   }
 `;
 
