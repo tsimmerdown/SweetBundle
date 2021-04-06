@@ -177,14 +177,22 @@ const Menu = () => {
           </HorizontalScroll>
         </HorizontalSection>
       ) : (
-        <CardsContainer>
-          <Typography variant="h3" style={{ textAlign: "center" }}>
-            Our Menu
-          </Typography>
-          {items.map((item, key) => {
-            return <MenuItem item={item} key={key} />;
-          })}
-        </CardsContainer>
+        <HorizontalSection
+          id="menu"
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <CardsContainer>
+            <Typography variant="h3" style={{ textAlign: "center" }}>
+              Our Menu
+            </Typography>
+            {items.map((item, key) => {
+              return <MenuItem item={item} key={key} />;
+            })}
+          </CardsContainer>
+        </HorizontalSection>
       )}
       <Panels />
     </>

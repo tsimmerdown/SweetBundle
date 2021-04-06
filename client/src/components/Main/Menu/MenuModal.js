@@ -111,14 +111,14 @@ const ItemModal = (props) => {
             {!isMobile && <ContentImage src={props.image} />}
             <ContentText>
               <ItemFeatures>
-                <Typography variant="h6">Pricing</Typography>
+                <Typography variant="h5">Pricing</Typography>
                 {props.pricing.map((price) => {
                   return <Typography variant="subtitle1">{price}</Typography>;
                 })}
               </ItemFeatures>
               {props.options.length !== 0 && (
                 <ItemFeatures>
-                  <Typography variant="h6">Options</Typography>
+                  <Typography variant="h5">Options</Typography>
                   {props.options.map((option) => {
                     return (
                       <Typography variant="subtitle1">{option}</Typography>
@@ -128,7 +128,7 @@ const ItemModal = (props) => {
               )}
               {props.toppings.length !== 0 && (
                 <ItemFeatures>
-                  <Typography variant="h6">Toppings</Typography>
+                  <Typography variant="h5">Toppings</Typography>
                   {props.toppings.map((topping) => {
                     return (
                       <Typography variant="subtitle1">{topping}</Typography>
