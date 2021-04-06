@@ -3,12 +3,18 @@ import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 import ItemModal from "./MenuModal";
 import { motion } from "framer-motion";
+import { deviceSize } from "../../responsive";
 
 const MenuItemCont = styled.div`
   width: 25vw;
 
   .name {
     font-weight: 500;
+  }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    width: 80vw;
+    margin: 2vh 0;
   }
 `;
 
@@ -18,6 +24,9 @@ const Content = styled(motion.div)`
   width: 20vw;
   overflow: hidden;
   border-radius: 10px;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    width: 100%;
+  }
 `;
 
 const Image = styled(motion.img)`

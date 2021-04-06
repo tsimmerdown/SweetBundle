@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Modal, Paper, Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
+import { deviceSize } from "../../responsive";
 
 const ModalContainer = styled(Modal)`
   background-color: rgba(0, 0, 0, 0.6);
@@ -46,6 +48,20 @@ const ItemFeatures = styled.div`
   margin: 1vh 1vw;
 `;
 
+const Notes = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 1vh;
+  bottom: 1vh;
+  whitespace: normal;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    position: static;
+    margin: 10px 0;
+  }
+`;
+
 const modalAnimation = {
   initial: {
     y: "-100vh",
@@ -64,6 +80,8 @@ const modalAnimation = {
 const transitions = { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.9] };
 
 const ItemModal = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   const handleClose = () => {
     props.setOpen(false);
   };
@@ -85,12 +103,12 @@ const ItemModal = (props) => {
           transition={transitions}
         >
           <Typography variant="h4">{props.name}</Typography>
-          <span>
+          {/* <span>
             Choice of Chocolate Covered Strawberries, Cream Cheese Filled
             Strawberries & Cake Pops
-          </span>
+          </span> */}
           <ContentCont>
-            <ContentImage src={props.image} />
+            {!isMobile && <ContentImage src={props.image} />}
             <ContentText>
               <ItemFeatures>
                 <Typography variant="h6">Pricing</Typography>
@@ -119,20 +137,11 @@ const ItemModal = (props) => {
                 </ItemFeatures>
               )}
               {props.notes.length !== 0 && (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    position: "absolute",
-                    right: "1vw",
-                    bottom: "1vh",
-                    whiteSpace: "normal",
-                  }}
-                >
+                <Notes>
                   {props.notes.map((note) => {
-                    return <Typography variant="subtitle1">{note}</Typography>;
+                    return <Typography variant="subtitle2">{note}</Typography>;
                   })}
-                </div>
+                </Notes>
               )}
             </ContentText>
           </ContentCont>

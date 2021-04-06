@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import MenuItem from "./MenuItem";
 import HorizontalScroll from "./HorizontalScroll";
 import Panels from "../../Panels/Panels";
+import { useMediaQuery } from "react-responsive";
+import { deviceSize } from "../../responsive";
+import { Typography } from "@material-ui/core";
 
 const HorizontalSection = styled(motion.section)`
   position: relative;
@@ -20,6 +23,11 @@ const CardsContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    flex-direction: column;
+    padding: 0;
+    margin: 15vh 0;
+  }
 `;
 
 const images = [
@@ -148,23 +156,36 @@ const items = [
 ];
 
 const Menu = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return (
     <>
-      <HorizontalSection
-        id="menu"
-        variants={containerVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <HorizontalScroll>
-          <CardsContainer>
-            {items.map((item, key) => {
-              return <MenuItem item={item} key={key} />;
-            })}
-          </CardsContainer>
-        </HorizontalScroll>
-      </HorizontalSection>
+      {!isMobile ? (
+        <HorizontalSection
+          id="menu"
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <HorizontalScroll>
+            <CardsContainer>
+              {items.map((item, key) => {
+                return <MenuItem item={item} key={key} />;
+              })}
+            </CardsContainer>
+          </HorizontalScroll>
+        </HorizontalSection>
+      ) : (
+        <CardsContainer>
+          <Typography variant="h3" style={{ textAlign: "center" }}>
+            Our Menu
+          </Typography>
+          {items.map((item, key) => {
+            return <MenuItem item={item} key={key} />;
+          })}
+        </CardsContainer>
+      )}
       <Panels />
     </>
   );

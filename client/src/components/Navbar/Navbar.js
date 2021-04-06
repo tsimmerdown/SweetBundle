@@ -48,6 +48,12 @@ const MobileMenu = styled(IconButton)`
   }
 `;
 
+const MobileDrawer = styled(Drawer)`
+  & .MuiDrawer-paper {
+    background: #d3a6a9;
+  }
+`;
+
 const Cont = styled.div`
   display: flex;
   align-items: center;
@@ -60,6 +66,12 @@ const Cont = styled.div`
     margin: 0;
   }
 `;
+
+const styles = {
+  paper: {
+    background: "blue",
+  },
+};
 
 const Navbar = () => {
   const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
@@ -92,7 +104,12 @@ const Navbar = () => {
           <MobileMenu onClick={menuHandler}>
             <MenuIcon style={{ fontSize: "30px" }} />
           </MobileMenu>
-          <Drawer anchor="top" open={open} onClose={menuHandler}>
+          <MobileDrawer
+            anchor="top"
+            open={open}
+            onClose={menuHandler}
+            classes={{ paper: styles.paper }}
+          >
             <Link to="/about" onClick={menuHandler}>
               <ButtonLink name={"About"} />
             </Link>
@@ -107,7 +124,7 @@ const Navbar = () => {
             <Link to="/faq" onClick={menuHandler}>
               <ButtonLink name={"FAQ"} />
             </Link>
-          </Drawer>
+          </MobileDrawer>
         </>
       )}
       {!isMobile && (
