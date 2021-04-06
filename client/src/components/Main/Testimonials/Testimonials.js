@@ -32,7 +32,7 @@ const Text = styled.div`
   @media screen and (max-width: ${deviceSize.mobile}px) {
     max-width: 100%;
     position: relative;
-    margin: 10vh 0;
+    margin: 10vh 30px;
     text-align: center;
   }
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 import { useMediaQuery } from "react-responsive";
 import { deviceSize } from "../../responsive";
-// import Feed from "react-instagram-authless-feed";
+//import Feed from "react-instagram-authless-feed";
 
 const InstaCont = styled.div`
   height: 50vh;
@@ -14,7 +14,6 @@ const InstaCont = styled.div`
   padding: 5vh 5vw;
   position: relative;
   margin-bottom: 5vh;
-
   .feed a img {
     width: 15vw;
     margin: 1vh 1vw;

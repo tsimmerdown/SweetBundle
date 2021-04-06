@@ -13,6 +13,8 @@ import {
 } from "@material-ui/core";
 import Panels from "../Panels/Panels";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
+import { deviceSize } from "../responsive";
 
 const Cont = styled(motion.div)`
   height: 100vh;
@@ -20,6 +22,10 @@ const Cont = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    height: auto;
+    margin-bottom: 10px;
+  }
 `;
 
 const InputCont = styled.div`
@@ -42,6 +48,11 @@ const TitleCont = styled.div`
   margin: 10vh 0 5vh 0;
   width: 100%;
   position: relative;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+    margin: 15vh 0 5vh 0;
+    text-align: center;
+  }
 `;
 
 const Title = styled(motion(Typography))``;
@@ -85,6 +96,8 @@ const validationSchema = yup.object({
 });
 
 const Order = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   const [delivery, setDelivery] = useState(false);
 
   const formik = useFormik({
@@ -108,32 +121,38 @@ const Order = () => {
         exit="exit"
       >
         <TitleCont>
-          <div
-            style={{
-              display: "flex",
-              overflow: "hidden",
-              position: "absolute",
-              paddingleft: "100%",
-              left: "35%",
-            }}
-          >
-            <Title
-              variant="h2"
-              initial={{
-                x: "100%",
-              }}
-              animate={{
-                x: "-100%",
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: "6",
-                ease: [0.2, 0.2, 0.2, 0.2],
+          {!isMobile ? (
+            <div
+              style={{
+                display: "flex",
+                overflow: "hidden",
+                position: "absolute",
+                paddingleft: "100%",
+                left: "35%",
               }}
             >
+              <Title
+                variant="h2"
+                initial={{
+                  x: "100%",
+                }}
+                animate={{
+                  x: "-100%",
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: "6",
+                  ease: [0.2, 0.2, 0.2, 0.2],
+                }}
+              >
+                <Typography variant="h2">Inquire About Your Order</Typography>
+              </Title>
+            </div>
+          ) : (
+            <Title variant="h3">
               <Typography variant="h2">Inquire About Your Order</Typography>
             </Title>
-          </div>
+          )}
         </TitleCont>
 
         <form onSubmit={formik.handleSubmit} style={{ width: "50vw" }}>

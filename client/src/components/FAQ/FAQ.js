@@ -5,6 +5,8 @@ import { Typography } from "@material-ui/core";
 
 import Panels from "../Panels/Panels";
 import AccordionItem from "./AccordionItem";
+import { deviceSize } from "../responsive";
+import { useMediaQuery } from "react-responsive";
 
 const FAQCont = styled(motion.div)`
   height: 100vh;
@@ -12,19 +14,32 @@ const FAQCont = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    height: auto;
+    justify-content: center;
+  }
 `;
 
 const TitleCont = styled.div`
-  padding: 10vh 0;
+  padding: 10vh 0 5vh 0;
   margin: 10vh 0 5vh 0;
   width: 100%;
   position: relative;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    margin: 20vh 0 5vh 0;
+    padding: 0;
+    text-align: center;
+  }
 `;
 
 const Title = styled(motion(Typography))``;
 
 const AccordionList = styled.div`
   width: 50vw;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    width: 90%;
+    margin: auto;
+  }
 `;
 
 const containerVariants = {
@@ -52,6 +67,8 @@ const containerVariants = {
 };
 
 const FAQ = () => {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return (
     <>
       <FAQCont
@@ -62,32 +79,36 @@ const FAQ = () => {
       >
         <div>
           <TitleCont>
-            <div
-              style={{
-                display: "flex",
-                overflow: "hidden",
-                position: "absolute",
-                paddingleft: "100%",
-                left: "15%",
-              }}
-            >
-              <Title
-                variant="h2"
-                initial={{
-                  x: "100%",
-                }}
-                animate={{
-                  x: "-100%",
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: "6",
-                  ease: [0.2, 0.2, 0.2, 0.2],
+            {!isMobile ? (
+              <div
+                style={{
+                  display: "flex",
+                  overflow: "hidden",
+                  position: "absolute",
+                  paddingleft: "100%",
+                  left: "15%",
                 }}
               >
-                Frequently Asked Question
-              </Title>
-            </div>
+                <Title
+                  variant="h2"
+                  initial={{
+                    x: "100%",
+                  }}
+                  animate={{
+                    x: "-100%",
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: "6",
+                    ease: [0.2, 0.2, 0.2, 0.2],
+                  }}
+                >
+                  Frequently Asked Question
+                </Title>
+              </div>
+            ) : (
+              <Title variant="h3">Frequently Asked Question</Title>
+            )}
           </TitleCont>
           <AccordionList>
             <AccordionItem

@@ -8,7 +8,7 @@ import { setCursor } from "../../actions/cursor";
 import { useMediaQuery } from "react-responsive";
 import { deviceSize } from "../responsive";
 import MenuIcon from "@material-ui/icons/Menu";
-import { IconButton } from "@material-ui/core";
+import { Drawer, IconButton } from "@material-ui/core";
 
 const NavCont = styled.div`
   height: ${(props) => (props.isMobile ? "75px" : "15vh")};
@@ -65,15 +65,15 @@ const Navbar = () => {
   const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
   const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const handleHover = () => {
     setHover(!hover);
     dispatch(setCursor());
   };
 
   const menuHandler = () => {
-    console.log("hi");
+    setOpen(!open);
   };
-
   return (
     <NavCont isMobile={isMobile}>
       <Link
@@ -88,9 +88,27 @@ const Navbar = () => {
         <Logo src="./images/Logo.png" alt="Sweet Bundle" isMobile={isMobile} />
       </Link>
       {isMobile && (
-        <MobileMenu aria-label="delete">
-          <MenuIcon style={{ fontSize: "30px" }} onClick={menuHandler} />
-        </MobileMenu>
+        <>
+          <MobileMenu onClick={menuHandler}>
+            <MenuIcon style={{ fontSize: "30px" }} />
+          </MobileMenu>
+          <Drawer anchor="top" open={open} onClose={menuHandler}>
+            <Link to="/about" onClick={menuHandler}>
+              <ButtonLink name={"About"} />
+            </Link>
+            <Link to="/menu" onClick={menuHandler}>
+              <ButtonLink name={"Menu"} />
+            </Link>
+
+            <Link to="/order" onClick={menuHandler}>
+              <ButtonLink name={"Order"} />
+            </Link>
+
+            <Link to="/faq" onClick={menuHandler}>
+              <ButtonLink name={"FAQ"} />
+            </Link>
+          </Drawer>
+        </>
       )}
       {!isMobile && (
         <Cont>
