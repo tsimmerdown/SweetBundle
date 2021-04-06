@@ -149,9 +149,7 @@ const Order = () => {
               </Title>
             </div>
           ) : (
-            <Title variant="h3">
-              <Typography variant="h2">Inquire About Your Order</Typography>
-            </Title>
+            <Typography variant="h3">Inquire About Your Order</Typography>
           )}
         </TitleCont>
 
