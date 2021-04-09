@@ -38,7 +38,7 @@ const CardCont = styled(Card)`
     text-align: center;
 
     @media screen and (max-width: ${deviceSize.mobile}px) {
-      height: 35vh;
+      height: 40vh;
       width: 100%;
       margin-top: 20px;
       padding: 10px;
